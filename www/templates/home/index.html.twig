@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Welcome!{% endblock %}
 
 {% block body %}
-    <h1>Intro Symfony</h1>
-
-    <a href="{{ path('app_login') }}">Log in </a>
-    <br>
-    <a href="{{ path('app_register') }}">Create account</a>
-
+<section class="home-section">
+    <div class="home-content">
+        <h1>Welcome to <span>MySymfony</span></h1>
+        <p>A sleek, modern and animated Symfony starter.</p>
+        <div class="home-buttons">
+            <a href="{{ path('app_login') }}" class="home-btn">Log In</a>
+            <a href="{{ path('app_register') }}" class="home-btn secondary">Create Account</a>
+        </div>
+    </div>
+</section>
 {% endblock %}

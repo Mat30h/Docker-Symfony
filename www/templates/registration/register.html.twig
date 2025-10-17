@@ -3,19 +3,21 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<section class="auth-section">
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <p>Join the community</p>
 
-    {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm) }}
+            {{ form_widget(registrationForm.firstname, {'attr': {'placeholder': 'First Name'}}) }}
+            {{ form_widget(registrationForm.lastname, {'attr': {'placeholder': 'Last Name'}}) }}
+            {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Email'}}) }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Password'}}) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+            <button type="submit" class="auth-btn">Register</button>
+        {{ form_end(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.lastname) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <p class="auth-footer">Already registered? <a href="{{ path('app_login') }}">Log In</a></p>
+    </div>
+</section>
 {% endblock %}
